@@ -2,20 +2,19 @@
 #include <fstream>
 #include <vector>
 #include <string>
-using namespace std;
 
 struct Instancia {
-    int n; //Numero de estações/vertices
-    int m; //Numero de veiculos
-    int Q; //Capacidade dos veiculos
-    vector<int> demandas; //Demanda de bicicletas de cada estação
-    vector<vector<int>> custos; //Custos de viagem
+    int n; // Número de estações/vertices
+    int m; // Número de veículos
+    int Q; // Capacidade dos veículos
+    std::vector<int> demandas; // Demanda de bicicletas de cada estação
+    std::vector<std::vector<int>> custos; // Custos de viagem
 };
 
-Instancia lerInstancia(const string &nomeArquivo) {
-    ifstream in(nomeArquivo);
+Instancia lerInstancia(const std::string &nomeArquivo) {
+    std::ifstream in(nomeArquivo);
     if (!in.is_open()) {
-        cerr << "Erro ao abrir o arquivo: " << nomeArquivo << endl;
+        std::cerr << "Erro ao abrir o arquivo: " << nomeArquivo << std::endl;
         exit(1);
     }
 
@@ -25,21 +24,21 @@ Instancia lerInstancia(const string &nomeArquivo) {
     in >> inst.m;
     in >> inst.Q;
 
-    string linha;
-    getline(in, linha);
-    getline(in, linha);
+    std::string linha;
+    std::getline(in, linha); // consome resto da linha
+    std::getline(in, linha); // pula linha em branco, se houver
 
     inst.demandas.resize(inst.n);
     for (int i = 0; i < inst.n; i++) {
         in >> inst.demandas[i];
     }
 
-    getline(in, linha);
-    getline(in, linha);
+    std::getline(in, linha); // consome resto da linha
+    std::getline(in, linha); // pula linha em branco, se houver
 
-    inst.custos.assign(inst.n + 1, vector<int>(inst.n + 1, 0));
-    for (int i = 0; i <= inst.n; i++) {
-        for (int j = 0; j <= inst.n; j++) {
+    inst.custos.assign(inst.n + 1, std::vector<int>(inst.n + 1, 0));
+    for (std::size_t i = 0; i < inst.custos.size(); i++) {
+        for (std::size_t j = 0; j < inst.custos[i].size(); j++) {
             in >> inst.custos[i][j];
         }
     }
