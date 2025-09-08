@@ -1,6 +1,6 @@
-#ifndef MOV_ONE
-#define MOV_ONE
+#include <iostream>
+#include "guloso.h"
 
-//void mov();
-
-#endif
+void mov(){
+    return;
+}
