@@ -5,16 +5,14 @@
 #include <string>
 using namespace std;
 
-// Estrutura de dados para armazenar a instância
 struct Instancia {
-    int n; // número de estações
-    int m; // número de veículos
-    int Q; // capacidade
+    int n;
+    int m;
+    int Q;
     vector<int> demandas;
     vector<vector<int>> custos;
 };
 
-// Apenas a declaração da função (não a implementação)
 Instancia lerInstancia(const string &nomeArquivo);
 
 #endif
