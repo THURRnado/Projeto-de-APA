@@ -1,6 +1,10 @@
-#ifndef GULOSO
-#define GULOSO
+#ifndef GULOSO_H
+#define GULOSO_H
 
-void teste();
+#include "Instancia.h"
+#include "Veiculo.h"
+#include <vector>
+
+std::vector<Veiculo> algoritmoGuloso(const Instancia &inst);
 
 #endif

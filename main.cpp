@@ -1,6 +1,6 @@
 #include <iostream>
 #include "guloso.h"
-#include "ler_entrada.h"
+#include "Instancia.h"
 
 int main() {
     Instancia inst = lerInstancia("instanciaTeste.txt");
@@ -21,6 +21,19 @@ int main() {
             std::cout << inst.custos[i][j] << " ";
         }
         std::cout << std::endl;
+    }
+
+    std::cout << "\nIniciando algoritmo guloso\n" << std::endl;
+
+    // Chamar o algoritmo guloso
+    std::vector<Veiculo> resultado = algoritmoGuloso(inst);
+
+    // Exibir rotas finais
+    for (auto &v : resultado) {
+        std::cout << "Veiculo " << v.id << " rota: ";
+        for (auto r : v.rota)
+            std::cout << r << " ";
+        std::cout << " | Custo total: " << v.custo_acumulado << std::endl;
     }
 
     return 0;
