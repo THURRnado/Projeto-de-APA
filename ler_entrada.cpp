@@ -2,14 +2,8 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include "ler_entrada.h"
 
-struct Instancia {
-    int n; // Número de estações/vertices
-    int m; // Número de veículos
-    int Q; // Capacidade dos veículos
-    std::vector<int> demandas; // Demanda de bicicletas de cada estação
-    std::vector<std::vector<int>> custos; // Custos de viagem
-};
 
 Instancia lerInstancia(const std::string &nomeArquivo) {
     std::ifstream in(nomeArquivo);
